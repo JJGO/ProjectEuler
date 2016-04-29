@@ -5,8 +5,6 @@
 # 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-# Answer: 232792560
-
 from numpy import prod
 from math import log
 import time
@@ -25,6 +23,7 @@ def minimum_perfect_multiple(n):
     return prod([ p**e for p,e in zip(primes,exps)])
 
 if __name__ == '__main__':
+    assert(minimum_perfect_multiple(10) == 2520)
     start = time.time()
     print(minimum_perfect_multiple(20))
     print("Done! Took %.6fs" % (time.time()-start))

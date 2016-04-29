@@ -4,8 +4,6 @@
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143 ?
 
-# Answer: 6857
-
 # Note Second method is assymptotically better
 
 import numpy as np
@@ -54,10 +52,8 @@ def largest_factor2(num):
 
 if __name__ == '__main__':
     start = time.time()
-    # print(largest_factor(13195131951310))
     print(largest_factor(600851475143))
     print("Done! Took %.6fs" % (time.time()-start))
     start = time.time()
-    # print(largest_factor(13195131951310))
     print(largest_factor2(600851475143))
     print("Done! Took %.6fs" % (time.time()-start))

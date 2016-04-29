@@ -8,8 +8,6 @@
 # Reasoning
 # By construnction the Fibonacci numbers are [even, odd, odd]+
 
-# Answer: 4613732
-
 import numpy as np
 import time
 

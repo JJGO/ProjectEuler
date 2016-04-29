@@ -4,8 +4,6 @@
 # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-# Answer: 906609
-
 import numpy as np
 import time
 import itertools
@@ -22,6 +20,7 @@ def largest_composite_palindrome(n):
                         return palindrome
 
 if __name__ == '__main__':
+    assert(largest_composite_palindrome(2)==9009)
     start = time.time()
     print(largest_composite_palindrome(3))
     print("Done! Took %.6fs" % (time.time()-start))
