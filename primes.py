@@ -1,6 +1,7 @@
 
 
 def primes_sieve(limit):
+    limit = int(limit)
     a = [False] * 2 + [True] * (limit-2)      # Initialize the primality list
     for (i, isprime) in enumerate(a):
         if isprime:
