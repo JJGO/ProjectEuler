@@ -43,6 +43,10 @@ Project Euler Problem 18
 
 Reasoning
 ---------
+    Simple bottom up dynamic programming approach. The sum at each node is the maximum
+    of the left branch and the right branch above.
+
+    SUM[i,j] = T[i,j] + max(SUM[i-1,j-1],SUM[i-1,j])
 """
 
 __solution__ = "708f3cf8100d5e71834b1db77dfa15d6"

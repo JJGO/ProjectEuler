@@ -158,14 +158,12 @@ class EratosthenesSieve(object):
 
     def divisors(self,n):
         """
-        Cardinality of the divisor set of num
-
-        Does not compute the divisors so it is faster
+        Iterator over the divisors of num
 
         Args:
-            num: number from which we get the divisors
+            num: number whose divisors we want to computes
         Returns:
-            integer representing the number of divisors
+            generator object over the divisors
         """
         def divisorsRecurrence(L):
             if L == []:
