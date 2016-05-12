@@ -1,11 +1,23 @@
 #!/usr/bin/env python
 
-# Project Euler Problem 4
-# A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
-# Find the largest palindrome made from the product of two 3-digit numbers.
+"""
+Project Euler Problem 4
+=======================
+
+   A palindromic number reads the same both ways. The largest palindrome made
+   from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+   Find the largest palindrome made from the product of two 3-digit numbers.
+
+Reasoning
+---------
+    There are less palindromes than products of two digits so we just enumerate the palindromes
+    in descending order and try to factor them
+"""
+
+__solution__ = "d4cfc27d16ea72a96b83d9bdef6ce2ec"
 
 import numpy as np
-import time
 import itertools
 
 def largest_composite_palindrome(n):
@@ -21,6 +33,5 @@ def largest_composite_palindrome(n):
 
 if __name__ == '__main__':
     assert(largest_composite_palindrome(2)==9009)
-    start = time.time()
     print(largest_composite_palindrome(3))
-    print("Done! Took %.6fs" % (time.time()-start))
+
