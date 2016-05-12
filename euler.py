@@ -23,10 +23,6 @@ parser.add_argument('-v','--verify', metavar='N', type=int, help='verifies the s
 parser.add_argument('-va','--verify-all', help='verifies the solution for all available problems')
 
 def _problem_file(n):
-    if n == 0:
-        files = glob.glob('p*.py')
-        problems = [int(f[1:4]) for f in files]
-        n = sorted(problems)[-1]+1
     return 'p%03d.py' % n
 
 def get_problem_str(n):
@@ -34,7 +30,7 @@ def get_problem_str(n):
         file = open('project_euler.txt','r')
         split_string = file.read().split('\nProblem ')
         problem_str = split_string[n][len(str(n))*2+10:]
-        problem_str,solution = problem_str.split('Answer: ')
+        problem_str, solution = problem_str.split('Answer: ')
         problem_str = problem_str.strip('\n ')
         out = ''
         out += '#!/usr/bin/env python\n\n'
@@ -73,15 +69,19 @@ def verify(filename):
 
 if __name__ == '__main__':
     args = parser.parse_args()
-
     if args.preview:
         print(get_problem_str(args.preview))
     if args.generate != None:
-        filename = _problem_file(args.generate)
+        n = args.generate
+        if n == 0:
+            files = glob.glob('p*.py')
+            problems = [int(f[1:4]) for f in files]
+            n = sorted(problems)[-1]+1
+        filename = _problem_file(n)
         if os.path.isfile(filename):
             msg = '"{0}" already exists. Overwrite?'.format(filename)
             click.confirm(click.style(msg, fg='red'), abort=True)
-        out = get_problem_str(args.generate)
+        out = get_problem_str(n)
         with open(filename,'w') as f:
             print(out,file=f)
         click.secho('Successfully created "{0}".'.format(filename), fg='green')
