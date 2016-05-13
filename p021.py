@@ -27,12 +27,11 @@ from euler.primes import EratosthenesSieve
 
 def amicable_below(threshold):
     primes = EratosthenesSieve()
-    proper_divisors = lambda n: list(primes.divisors(n))[:-1]
     amicable = []
     for i in range(1,threshold):
-        j = sum(proper_divisors(i))
+        j = primes.sum_proper_divisors(i)
         if j > i:
-            if i == sum(proper_divisors(j)):
+            if i == primes.sum_proper_divisors(j):
                 amicable.append(i)
                 amicable.append(j)
     return amicable

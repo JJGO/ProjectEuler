@@ -21,8 +21,19 @@ Project Euler Problem 22
 
 Reasoning
 ---------
+   Direct Implementation
 """
 
 __solution__ = "f2c9c91cb025746f781fa4db8be3983f"
 
+def score_names(names):
+   def score(name):
+      return sum( ord(c)-ord('A')+1 for c in name)
+   names = sorted( name.replace(' ','') for name in names )
+   scores = [(i+1)*score(name) for i,name in enumerate(names)]
+   return sum(scores)
 
+if __name__ == '__main__':
+   with open('resources/names.txt','r') as f:
+      names = f.read().replace('"','').split(',')
+      print(score_names(names))
