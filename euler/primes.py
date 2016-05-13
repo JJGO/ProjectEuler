@@ -179,6 +179,23 @@ class EratosthenesSieve(object):
         F = self.factor(n)
         return divisorsRecurrence(F)
 
+    def sum_proper_divisors(self,num):
+        """
+        Sum of the proper divisor set of num
+
+        Does not compute the divisors since it uses
+        the multiplicativity property of the sigma
+        function
+
+        Args:
+            num: number from which we get the divisors
+        Returns:
+            integer representing the number of divisors
+        """
+        factors = self.factor(int(num))
+        div_sum = np.prod([ (p**(e+1)-1) // (p-1) for p,e in factors ])
+        return div_sum-num
+
 def primes_below(limit):
     limit = int(limit)
     primes = np.ones(limit,dtype=np.int64)
@@ -187,4 +204,5 @@ def primes_below(limit):
         if isprime == 1:
             yield i
             primes[i*i:limit:i] = 0
+
     
