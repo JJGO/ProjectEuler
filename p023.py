@@ -48,4 +48,3 @@ def non_abundant_sum_sieve(threshold = 28123):
 
 if __name__ == '__main__':
    print(non_abundant_sum_sieve())
-   

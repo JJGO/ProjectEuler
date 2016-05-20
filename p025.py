@@ -39,18 +39,15 @@ __solution__ = "a376802c0811f1b9088828288eb0d3f0"
 from math import log10,ceil
 
 def fibonacci():
-    F_1, F_2 = 1,1
-    yield F_2
-    yield F_1
+    a, b = 0,1
     while(True):
-        F = F_1 + F_2
-        yield F
-        F_1, F_2 = F, F_1
+        yield a
+        a,b = b, a + b
 
 def first_fib_digits(n):
     for i,f in enumerate(fibonacci()):
         if len(str(f)) >= n:
-            return i+1
+            return i
 
 def first_fib_digits(n):
     phi = (1+5**0.5) / 2
