@@ -61,10 +61,11 @@ def longest_quadratic_prime_chain(threshold):
             l = len_iterable(itertools.takewhile(primes.is_prime, candidate_primes ) )
             if l > max_length:
                 max_length,max_a,max_b = l,a,b
-    return max_a*max_b
+    return max_a,max_b
 
 def main():
-    return longest_quadratic_prime_chain(1000)
+    a,b = longest_quadratic_prime_chain(1000)
+    return a*b
 
 if __name__ == '__main__':
     print(main())
