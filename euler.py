@@ -43,6 +43,8 @@ def get_problem_str(n):
         out += '"""\n\n'
         if not solution.startswith('?'):
             out += '__solution__ = "%s"\n\n' % solution.strip('\n')
+        out += "def main():\n    return None\n\n"
+        out += "if __name__ == '__main__':\n    print(main())\n"
         return out
     except FileNotFoundError:
         print("Missing project_euler.txt. Please visit http://kmkeen.com/local-euler/")
