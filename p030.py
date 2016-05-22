@@ -23,7 +23,7 @@ Reasoning
     We can upper bound the number of digits to consider since if they were all
     nines, we would have d*9**n and this has to be greater than 10**(d-1) or otherwise
     the sum would have less than d digits. We can thus solve the equation
-        d = log10(d ** 9 )
+        d*9^n > 10^(d-1)
     Or more simply, just iterate until d * 9**n is larger and use that d as an strict upper bound
     
     Then, we can look at combinations with replacement since the sum is commutative and it will
@@ -33,7 +33,6 @@ Reasoning
 __solution__ = "27a1779a8a8c323a307ac8a70bc4489d"
 
 import itertools
-import numpy as np
 
 def power_digits(n):
     d = next(itertools.dropwhile(lambda d: d*9**n > 10**(d-1) , itertools.count(start=2) ))
