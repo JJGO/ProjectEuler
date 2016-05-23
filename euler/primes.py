@@ -107,7 +107,7 @@ class EratosthenesSieve(object):
         Returns:
             True if prime, False otherwise
         """
-        if num < self.threshold:
+        if num < self.lastnumber:
             return self.table[num] == 1
         for p in self.below(int(num**0.5)+1):
             if num % p == 0:
