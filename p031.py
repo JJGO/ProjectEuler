@@ -17,7 +17,7 @@ Project Euler Problem 31
 
 Reasoning
 ---------
-    Recursion
+    Recursion for
 """
 
 __solution__ = "142dfe4a33d624d2b830a9257e96726d"
